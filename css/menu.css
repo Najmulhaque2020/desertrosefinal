@@ -1,0 +1,340 @@
+
+/*------------------ Arrow Icon --------------*/
+.fa-caret-down{
+    margin-left: 5px;
+}
+.fa-caret-right {
+    margin-left: 13px;
+}
+/*------------------ Header Navigation --------------*/
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    animation-name: scrolltop;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes scrolltop {
+    from{
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+        -webkit-transform: translate3d(0, -100%, 0);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+        -webkit-transform: none;
+    }
+}
+.stickynavber {
+    z-index: 9999;
+}
+.navber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.stickynavber .logo img{
+    width: 120px;
+}
+.stickynavber .togglemenu, .stickynavber .logo {
+    display: none;   
+}
+.stickynavber nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    background-color: #fff;
+    z-index: 999;
+}
+.stickynavber nav ul li {
+    position: relative;
+}
+.stickynavber ul li a {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    padding: 10px 25px;
+    color: #333;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: all .5s ease-in-out;
+    z-index: 9;
+}
+.stickynavber nav ul li.active a{
+    padding: 10px 5px;
+}
+.stickynavber nav ul li ul li a{
+    padding: 6px 15px;
+}
+.stickynavber nav ul li.active {
+    padding-left: 25px;
+}
+.stickynavber nav ul li a:hover, .stickynavber nav ul li.active a {
+    color: #fff;
+}
+.stickynavber nav ul li ul li a:hover {
+    color: #eb3007;
+}
+.stickynavber nav ul li ul {
+    position: absolute;
+    flex-direction: column;
+    top: 150%;
+    visibility: hidden;
+    opacity: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 6px;
+    min-width: 200px;
+    border-top: 3px solid #eb3007;
+    transition: all .5s ease-in-out;
+    box-shadow: 0 0 6px rgba(0,0,0,.4);
+}
+.stickynavber nav ul li ul::before{
+    position: absolute;
+    content: "";
+    left: 20%;
+    top: -24px;
+    border: 12px solid transparent;
+    border-bottom-color: #eb3007;
+}
+.stickynavber nav ul li:hover > ul {
+    top: 63px;
+    visibility: visible;
+    opacity: 1;
+}
+/* Sub menu*/
+.stickynavber nav ul li ul li {
+    position: relative;
+}
+.stickynavber nav ul li ul li ul {
+    position: absolute;
+    flex-direction: column;
+    top: 150%;
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    background-color: #fff;
+    padding: 6px;
+    min-width: 200px;
+    border-top: 0; 
+    border-left: 3px solid #eb3007;
+    transition: all .5s ease-in-out;
+    z-index: 9;
+}
+.stickynavber nav ul li ul li ul::before{
+    position: absolute;
+    content: "";
+    left: -24px;
+    top: 20%;
+    border: 12px solid transparent;
+    border-right-color: #eb3007;
+}
+.stickynavber nav ul li ul li:hover > ul {
+    top: 0;
+    left: 194px;
+    visibility: visible;
+    opacity: 1;
+}
+/* Sub menu Dropdown menu*/
+.stickynavber nav ul li ul li {
+    position: relative;
+}
+.stickynavber nav ul li ul li ul {
+    position: absolute;
+    flex-direction: column;
+    top: 150%;
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    background-color: #fff;
+    padding: 6px;
+    min-width: 200px;
+    border-top: 0; 
+    border-left: 3px solid #eb3007;
+    transition: all .5s ease-in-out;
+}
+.stickynavber nav ul li ul li ul::before{
+    position: absolute;
+    content: "";
+    left: -24px;
+    top: 10px;
+    border: 12px solid transparent;
+    border-right-color: #eb3007;
+}
+.stickynavber nav ul li ul li:hover > ul {
+    top: 0;
+    left: 249px;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*------------------ Skew Effect --------------*/
+.stickynavber  ul li ul li a::before, .stickynavber  ul li ul li ul li a::before {
+    display: none;
+}
+.stickynavber  ul li ul li a::after, .stickynavber  ul li ul li ul li a::after {
+    display: none;
+}
+.stickynavber  ul li a::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 30px;
+    left: 5%;
+    top: 18%;
+    background-color: #eb3007;
+    z-index: -1;
+    transform-style: preserve-3d;
+    transform: scale(0) rotateY(0deg) skew(10deg);
+    transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -webkit-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -moz-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -ms-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -o-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+}
+.stickynavber ul li:hover a::before, .stickynavber ul li.active a::before {
+    transform: scale(1.2) rotateY(360deg) skew(10deg);
+    -webkit-transform: scale(1.2) rotateY(360deg) skew(10deg);
+    -moz-transform: scale(1.2) rotateY(360deg) skew(10deg);
+    -ms-transform: scale(1.2) rotateY(360deg) skew(10deg);
+    -o-transform: scale(1.2) rotateY(360deg) skew(10deg);
+}
+.stickynavber  ul li a::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0,0,0,.1);
+    z-index: -2;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;    
+    transform-style: preserve-3d;
+    transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -webkit-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -moz-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -ms-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    -o-transition: all 1.5s cubic-bezier(.43,1.91,.35,.74);
+    transform: translate(-50%, -50%) scale(0);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+    -moz-transform: translate(-50%, -50%) scale(0);
+    -ms-transform: translate(-50%, -50%) scale(0);
+    -o-transform: translate(-50%, -50%) scale(0);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.stickynavber ul li:hover a::after, .stickynavber ul li.active a::after{
+    transform: translate(-50%, -50%) scale(1.2);
+    -webkit-transform: translate(-50%, -50%) scale(1.2);
+    -moz-transform: translate(-50%, -50%) scale(1.2);
+    -ms-transform: translate(-50%, -50%) scale(1.2);
+    -o-transform: translate(-50%, -50%) scale(1.2);
+}
+
+.csoon {
+    font-size: 8px;
+    padding: 3px 3px;
+    margin-left: 7px;
+    background: #eb3007;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    text-transform: uppercase;
+    position: relative;
+    transform: translateY(-3px);
+}
+.csoon::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 4px;
+    border: 5px solid transparent;
+    border-right: 5px solid #eb3007;
+}
+
+
+
+/*---------------- Responsive Navigation -------------*/
+
+@media (max-width: 991px) {
+    .sticky nav.active{
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    .stickynavber .navber {
+        padding: 10px 20px;
+    }
+    .stickynavber .togglemenu, .stickynavber .logo {
+        display: block;   
+    }
+    .stickynavber .togglemenu {
+        color: #eb3007;
+        font-size: 30px; 
+        cursor: pointer;
+        margin-left: auto;
+        padding: 10px 15px;
+    }
+    .stickynavber .togglemenu .fa-times {
+        display: none;
+    }
+    .stickynavber .togglemenu .fa-times.active {
+        display: inline-block;
+    }
+    .stickynavber .togglemenu .fa-bars {
+        display: inline-block;
+    }
+    .stickynavber .togglemenu .fa-bars.active {
+        display: none;
+    }
+    .navber {
+        display: block;
+    }
+    .stickynavber nav {
+        display: none;
+    } 
+    .stickynavber nav.active {
+        display: block;
+        margin-left: 10px;
+    }
+    .stickynavber nav.active ul li a {
+        padding: 15px 10px;
+    }
+    .stickynavber nav ul li.active a{
+        padding: 15px 5px;
+    }
+    .stickynavber nav.active ul li.active {
+        padding-left: 0px;
+        padding-top: 15px;
+    }
+    .stickynavber nav.active .navigation {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    .stickynavber nav.active ul li:hover > ul {
+        position: static;
+        margin-left: 15px;
+    }
+    .stickynavber nav.active ul li ul {
+        border-top: none;
+        border-left: 3px solid #eb3007;
+        transition: none;
+    }
+    .stickynavber nav.active ul li ul::before{
+        display: none;
+    }
+    .stickynavber  ul li a::before {
+        top: 25%;
+    }
+}
+
